@@ -136,18 +136,26 @@ def jogo_forca():
     print("Palavra: ", " ".join(letras_adivinhadas))
 
     while tentativas < max_tentativas:
+        countprint=0    #contador para nr de impressoes no caso de vitoria
         letra = input("Digita uma letra: ").lower()
 
-        if letra in alfabeto and len(letra) == 1:
-            if letra in letras_adivinhadas or letra in letras_erradas: #Impedir a repetição de letras. PF
+        if letra in alfabeto and len(letra) == 1: #verifica se o caractere existe na lista albeto[] e se é um unico caratere
+            if letra in letras_adivinhadas or letra in letras_erradas: #Impedir a repetição de letras.
                 print("Já digistaste essa letra, tenta outra!")
                 continue
             # Verificar se a letra fornecida está presente na palavra secreta
             if letra in palavra_secreta:
                 for i in range(len(palavra_secreta)):
                     if palavra_secreta[i] == letra:
-                        letras_adivinhadas[i] = letra
-                        print("Parabéns, acertaste numa letra!") #acrescentei Parabéns acertaste, na letra.PF
+                        if i==0:  #Assume/coloca o primeira letra sempre como maiscula
+                            letras_adivinhadas[i] = letra.upper()
+                        else:
+                            letras_adivinhadas[i] = letra #restantes letras como minusculas
+                        if countprint<1: #se contador menor 1 imprime mensagem de vitória
+                            print("Parabéns, acertaste numa letra!") #acrescentei Parabéns acertaste, na letra.
+                            countprint+=1
+                        else:           
+                            continue
             else:
                 letras_erradas.append(letra)
                 tentativas += 1
@@ -158,14 +166,13 @@ def jogo_forca():
 
             # Verificar se o jogador venceu ou perdeu o jogo
             if "_" not in letras_adivinhadas:
-                print("Parabéns!! Ganhaste \o/")
+                print("Parabéns!! Ganhaste \o/ \o/")
                 return
         elif len(letra) == 1:
             print("Inválido. Apenas letras. Tente novamente.")
         else:
             print("Inválido. Digite uma única letra por favor.")
 
-        # Solicitar que o segundo jogador insira uma letra
         print("Letras erradas: ", ", ".join(letras_erradas))
 
     print("Oh, não conseguiste! A palavra secreta era:", palavra_secreta,".Tenta outra vez!")
