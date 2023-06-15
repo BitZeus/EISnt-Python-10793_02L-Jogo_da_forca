@@ -1,22 +1,50 @@
+#-------------------------------------------------------------------------------
+#                           TESTE nº 1
+#
+# Curso: Fundamentos de Python
+# UFCD/Módulo/Temática: UFCD: 10793 - Fundamentos de Python
+# Ação: 10793_02/L
+#
+# Grupo 2
+# Nome dos Formandos:   Andreia Martins
+#                       Pedro Fragoso
+#                       Ulisses Alvarinho
+#
+# Programa: Jogo da Forca
+#-------------------------------------------------------------------------------
 
-# Importe o módulo random para escolher uma palavra aleatória
+#inicio do programa
+
+
+# Importação do módulo random para escolher uma palavra aleatória
 import random
 
 # Lista de palavras para o jogo da Forca
-palavras = ["ajuda", "beato", "areeiro", "benfica", "alvalade", "marvila", "campolide", "lumiar", "olivais"]
+palavras = ["Ajuda", "Beato", "Areeiro", "Benfica", "Alvalade", "Marvila", "Campolide", "Lumiar", "Olivais"]
 
-# Escolha uma palavra aleatória da lista
-palavra_secreta = random.choice(palavras)
+# Escolha aleatória de uma palavra da lista palavras[] e guarda na variavel palavra_secreta
+palavra_secreta = random.choice(palavras).lower()
 
-# Inicialize a lista de letras adivinhadas
+
+# Inicialização da lista de letras adivinhadas com o valor de "_" tendo em conta o tamanho da palavra_secreta
 letras_adivinhadas = ["_"] * len(palavra_secreta)
 
 # Número máximo de tentativas do jogador
 max_tentativas = 5
 
-alfabeto=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-#print(alfabeto)
 
+
+#inicializa a lista alfabeto[] com os caracteres aceites pelo jogo. Dado que são nomes de cidades exclui tudo o que são numeros.     
+alfabeto=[]
+for i in range(65,91):  #adiciona as letras maiusculas do alfabeto segundo tabela ascii
+    char = chr(65)
+    alfabeto.append(char)
+for i in range(97,123): #adiciona as letras minusculas do alfabeto segundo tabela ascii
+    char = chr(i)
+    alfabeto.append(char)
+for i in range(192,256):  #adiciona as letras com acentuação/caracteres especiais do alfabeto segundo tabela ascii  
+    char = chr(i)
+    alfabeto.append(char)
     
 
 
