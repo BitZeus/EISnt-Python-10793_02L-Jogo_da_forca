@@ -186,11 +186,11 @@ def jogo_forca():
 
     while tentativas < max_tentativas:
         countprint=0    # Contador para nr de impressoes no caso de vitoria
-        letra = input("Digita uma letra: ").lower() #solicita uma letra ao jogador e converte para minuscula
+        letra = input("Digita uma letra: ").lower() # Solicita uma letra ao jogador e converte para minuscula
 
         if letra in alfabeto and len(letra) == 1: # Verifica se o caractere existe na lista albeto[] e se é um unico caratere
             if letra in letras_adivinhadas or letra in letras_erradas: # Impedir a repetição de letras.
-                print("Já digistaste essa letra, tenta outra!")
+                print("Já digitaste essa letra, tenta outra!")
                 continue
             
             if letra in palavra_secreta:            # Verifica se a letra fornecida está presente na palavra secreta
@@ -209,7 +209,7 @@ def jogo_forca():
                 letras_erradas.append(letra)        # Adiciona a letra errada à lista letras_erradas[]
                 tentativas += 1                     # Incrementa o numero de tentativas já usadas
                 desenhar_boneco(tentativas)         # Exibe o boneco de acordo com o nº de tentativas
-                print(f"Letra Errada. Numero de tentativas restantes: {max_tentativas-tentativas}.") # Apresenta o numero de tentaivas restantes.
+                print("Letra Errada. Numero de tentativas restantes: {max_tentativas-tentativas}.") # Apresenta o numero de tentaivas restantes.
                    
             # Atualizar a exibição da palavra com a letra revelada, se estiver correta
             print("Palavra: ", " ".join(letras_adivinhadas))
