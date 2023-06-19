@@ -43,17 +43,17 @@ def desenhar_boneco(tentativas):
     if tentativas == 0:
         print("    ____________________________________________________________")
         print("   |/                                                           |")
-        print("   |                                            |               |               |    ")
-        print("   |                                           ( )             _|_             ( )")
-        print("   |                                          |   |     ___   |   |   ___     |   |")
-        print("   |                                          |   |____|   |__|   |__|   |____|   | ")
-        print("   |                                          |                                   |")
-        print("   |                                          |               _____               | ")
-        print("   |                                          |              |     |              |")
-        print("   |                                                         |     |")
-        print("   |                                                           ")
-        print("   |                                                          ")
-        print("   |                                                           ")
+        print("   |                                                            |                    ")
+        print("   |                                                           _|_                   ")
+        print("   |                                                                                 ")
+        print("   |                                                                                 ")
+        print("   |                                                                                 ")
+        print("   |                                                                                 ")
+        print("   |                                                                                 ")
+        print("   |                                                                                 ")
+        print("   |                                                                                 ")
+        print("   |                                                                                 ")
+        print("   |                                                                                 ")
         print("___|___")
     elif tentativas == 1:
         print("    ____________________________________________________________")
@@ -178,7 +178,7 @@ def jogo_forca():
     letras_erradas = []
     #letras_adivinhadas = palavra_secreta[] 
 
-    print("Olá, bem-vindo ao jogo da Forca!")          
+    print("***********  Olá, bem-vindo ao jogo da Forca! ***************")          
     print("Adivinha a palavra secreta.")
     print("Vamos dar-te uma dica, é uma das freguesias de Lisboa!")
     print("Tens 5 tentativas. Let's play :)")
