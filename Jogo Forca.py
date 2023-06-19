@@ -35,14 +35,8 @@ max_tentativas = 5
 #inicializa a lista alfabeto[] para guardar os caracteres aceites pelo jogo.      
 alfabeto=[]
 
-#função cria_alfabeto() para adicionar ao alfabeto[] os caracteres aceites pelo jogo.     
-def cria_alfabeto():
-    for i in range(65,256):                                 #procura no intervalo de caracteres da tabela ascii de 65 a 255
-        if i <91 or i >96 and i <123 or i>191 and i <256:   #Inclui no alfabeto[], letras maiúsculas, minúsculas e letras com acentuação/especiais. Exclui numeros
-            char=chr(i)                                     #coloca o valor de i na letra correspondente, segundo tabela ascii
-            alfabeto.append(char)                           #adiciona a letra ao alfabeto do jogo 
-        else:       
-            continue                                        #Se corresponder a um numero na tabela ascii, pula para o proximo.
+#cria lista alfabeto[] com  todas as letras maiúsculas e minúsculas com ou sem acentução e caracteres especiais, excepto numeros, segundo tabela ascii 
+alfabeto=[chr(i) for i in range(65,256) if i <91 or i >96 and i <123 or i>191 and i <256]  # tecnica list comprehension 
 
 # Função para desenhar o boneco da forca
 def desenhar_boneco(tentativas):
@@ -233,5 +227,4 @@ def jogo_forca():
     print("Oh, não conseguiste! A palavra secreta era:", palavra_secreta,".Tenta outra vez!") #Mensagem de fim jogo por atingir o numero maximo de tentativas sem sucesso.
 
 # Iniciar o jogo da forca
-cria_alfabeto() #inicia a função cria alfabeto
 jogo_forca()    #inicia a função principal do jogo
