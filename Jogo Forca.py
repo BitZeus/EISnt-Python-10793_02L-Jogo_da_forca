@@ -32,21 +32,11 @@ letras_adivinhadas = ["_"] * len(palavra_secreta)
 # Número máximo de tentativas do jogador
 max_tentativas = 5
 
-
-
-#inicializa a lista alfabeto[] com os caracteres aceites pelo jogo. Dado que são nomes de cidades exclui tudo o que são numeros.     
+#inicializa a lista alfabeto[] para guardar os caracteres aceites pelo jogo.      
 alfabeto=[]
-for i in range(65,91):  #adiciona as letras maiusculas do alfabeto segundo tabela ascii
-    char = chr(65)
-    alfabeto.append(char)
-for i in range(97,123): #adiciona as letras minusculas do alfabeto segundo tabela ascii
-    char = chr(i)
-    alfabeto.append(char)
-for i in range(192,256):  #adiciona as letras com acentuação/caracteres especiais do alfabeto segundo tabela ascii  
-    char = chr(i)
-    alfabeto.append(char)
-    
 
+#cria lista alfabeto[] com  todas as letras maiúsculas e minúsculas com ou sem acentução e caracteres especiais, excepto numeros, segundo tabela ascii 
+alfabeto=[chr(i) for i in range(65,256) if i <91 or i >96 and i <123 or i>191 and i <256]  # tecnica list comprehension 
 
 # Função para desenhar o boneco da forca
 def desenhar_boneco(tentativas):
@@ -218,6 +208,7 @@ def jogo_forca():
                 letras_erradas.append(letra)        #adiciona a letra errada à lista letras_erradas[]
                 tentativas += 1                     #incrementa o numero de tentativas já usadas
                 desenhar_boneco(tentativas)         #Exibe o boneco de acordo com o nº de tentativas
+                print(f"Letra Errada. Numero de tentativas restantes: {max_tentativas-tentativas}.") #apresenta o numero de tentaivas restantes.
                    
             # Atualizar a exibição da palavra com a letra revelada, se estiver correta
             print("Palavra: ", " ".join(letras_adivinhadas))
@@ -231,9 +222,9 @@ def jogo_forca():
         else:                                       #faz o print de erro se nenhuma das opções
             print("Inválido. Digita uma única letra por favor.")
 
-        print("Letras erradas: ", ", ".join(letras_erradas))
+        print("Letras erradas: ", ", ".join(letras_erradas)) #Apresenta sempre ao jogador as letras erradas
 
-    print("Oh, não conseguiste! A palavra secreta era:", palavra_secreta,".Tenta outra vez!")
+    print("Oh, não conseguiste! A palavra secreta era:", palavra_secreta,".Tenta outra vez!") #Mensagem de fim jogo por atingir o numero maximo de tentativas sem sucesso.
 
 # Iniciar o jogo da forca
-jogo_forca()
+jogo_forca()    #inicia a função principal do jogo
