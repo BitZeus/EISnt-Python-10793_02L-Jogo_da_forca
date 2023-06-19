@@ -214,6 +214,7 @@ def jogo_forca():
                 letras_erradas.append(letra)        #adiciona a letra errada à lista letras_erradas[]
                 tentativas += 1                     #incrementa o numero de tentativas já usadas
                 desenhar_boneco(tentativas)         #Exibe o boneco de acordo com o nº de tentativas
+                print(f"Letra Errada. Numero de tentativas restantes: {max_tentativas-tentativas}.") #apresenta o numero de tentaivas restantes.
                    
             # Atualizar a exibição da palavra com a letra revelada, se estiver correta
             print("Palavra: ", " ".join(letras_adivinhadas))
